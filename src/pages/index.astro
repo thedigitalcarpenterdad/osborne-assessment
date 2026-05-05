@@ -1,0 +1,265 @@
+---
+import Base from "../layouts/Base.astro";
+
+const photos = [
+  { id: "01", file: "01_underside_cornice_unsafe.jpg", title: "Cornice Soffit — Active Water Migration", elevation: "South Facade", finding: "Calcium leaching from carved cornice soffit indicates sustained water entry through projecting belt course. Coating system has failed; brownstone substrate in contour-scaling distress.", tier: "envelope" },
+  { id: "02", file: "02_underside_cornice_pointing.jpg", title: "Modillion Bracket — Bedding-Plane Distress", elevation: "South Facade", finding: "Carved scroll modillions show bedding-plane cracking, granular sugaring, and surface scaling. Mortar formulation appears incompatible with historic brownstone substrate; LPC-coordinated lime-based mortar specification recommended.", tier: "envelope" },
+  { id: "03", file: "03_water_table_sheetmetal_unsecured.jpg", title: "Storefront Cap Flashing — Unsecured", elevation: "South Facade · Street Level", finding: "Painted sheet-metal cap flashing at storefront-to-water-table transition shows rust-through perforation and open lap with no positive mechanical engagement. Direct over public sidewalk.", tier: "fod" },
+  { id: "04", file: "04_storefront_panel_displaced.jpg", title: "Bulkhead Panel — Displaced", elevation: "South Facade · Street Level", finding: "Inset sheet-metal panel canted out of plane with open perimeter reveals. Open horizontal lap at top of cornice with multi-season debris accumulation indicating chronic water entry into the assembly.", tier: "fod" },
+  { id: "05", file: "05_water_table_belt_course_failure.jpg", title: "Belt Course / Water Table — Active Spalling", elevation: "Street Facade · Story Line", finding: "Major intermediate belt course with carved scroll modillions. Active brownstone material loss above cornice line. Building-to-building joint at adjacent property requires close-up evaluation.", tier: "envelope" },
+  { id: "06", file: "06_cracked_capital_over_entrance.jpg", title: "Carved Capital Over Main Entrance", elevation: "South Facade · Entrance", finding: "Carved limestone capital exhibits open through-element fracture with displaced corner unit. Located directly above primary occupant egress. In Niche's professional opinion, this condition warrants immediate engineering review and interim overhead protection.", tier: "unsafe" },
+  { id: "07", file: "07_failed_flashing_pier_corner.jpg", title: "Pier Termination Flashing — Failed", elevation: "South Facade", finding: "Sheet-metal cap flashing at masonry pier termination shows open serrated joint at the masonry-to-metal interface. Coating exhibits alligated film failure across cap surface.", tier: "envelope" },
+  { id: "08", file: "08_failing_watertable_joints.jpg", title: "Water Table Joint Zone — Concealed Metal Corrosion", elevation: "South Facade", finding: "Recessed panel zone above an arched window head shows three concurrent indicators: efflorescence (active moisture migration), wet-path streaking (chronic water flow), and rust-colored streaking from the stone face — consistent with concealed metal corrosion behind the masonry.", tier: "envelope" },
+  { id: "09", file: "09_arched_window_head_displaced_stone.jpg", title: "Arched Window Head — Open Joint at Haunch", elevation: "South Facade · Window Bay", finding: "Open joint visible at the springer/haunch zone of a masonry arch — the highest-stress point in any masonry arch. Possible voussoir displacement. Located above an occupied window. Niche's professional opinion: warrants immediate engineering review.", tier: "unsafe" },
+  { id: "10", file: "10_panel_zone_with_arch_below.jpg", title: "Window Bay — System View", elevation: "South Facade · Window Bay", finding: "Single-frame composite of the panel zone, cornice band, and arched window head. Shows the cause-and-effect chain: water entering above, migrating through the assembly, manifesting as open joints at the arch below.", tier: "system" },
+  { id: "11", file: "11_cracked_watertable_underside.jpg", title: "Story-Line Water Table Cornice — Underside Cracking", elevation: "Street Facade · Story Line", finding: "Major story-line water table with carved decorative panels. Cracking visible at projecting underside. Severe alligated coating failure across cornice and panel inserts. Coating system appears incompatible with porous brownstone substrate.", tier: "envelope" },
+  { id: "12", file: "12_railings_not_to_code.jpg", title: "Rooftop Guard Rail — Code Compliance", elevation: "Roof Level", finding: "Steel pipe rail system with horizontal rails, no vertical infill, and openings substantially exceeding the 4-inch sphere maximum. Configuration creates ladder-effect climbing hazard. Warrants close-up code review against NYC BC §1015.", tier: "code" },
+  { id: "13", file: "13_failing_brownstone_repair_freight_entrance_UNSAFE.jpg", title: "Brownstone Above Freight Entrance — UNSAFE", elevation: "Service Entrance", finding: "Cementitious stone repair with horizontal bond-line failure; upper edge separated from substrate behind. Located above active service entrance with daily staff and delivery traffic. In Niche's professional opinion, this condition is UNSAFE and requires immediate interim overhead protection.", tier: "unsafe" },
+  { id: "14", file: "14_more_brownstone_cracks.jpg", title: "Brownstone Substrate — Bedding-Related Fracture", elevation: "South Facade · Service Area", finding: "Diagonal fracture in original brownstone unit consistent with face-bedded sandstone behavior. Branching micro-cracks indicate broader weakened zone. Edge spall confirms active material detachment.", tier: "envelope" },
+  { id: "15", file: "15_water_table_crack_through_painted_cornice.jpg", title: "Window-Line Water Table — Through-Stone Fracture", elevation: "South Facade · Window Bay", finding: "Vertical fracture cutting through one brownstone unit and propagating into the projecting molded section below. Severe alligated coating failure across stacked classical entablature.", tier: "envelope" },
+  { id: "16", file: "16_water_table_crack_wider_view.jpg", title: "Window Bay — Architectural Rhythm", elevation: "South Facade · Window Bay", finding: "Wider context of the window-line water table fracture. The architectural composition of pilaster + sill cornice + entablature repeats at every window bay on this elevation.", tier: "envelope" },
+];
+
+const unsafe = photos.filter(p => p.tier === "unsafe");
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base>
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-end overflow-hidden grain bg-[var(--color-ink)]">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-ink)]/40 to-[var(--color-ink)]"></div>
+      <img src={`${base}/images/photos/01_underside_cornice_unsafe.jpg`} alt="" class="w-full h-full object-cover opacity-50" />
+    </div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-8 lg:px-16 pb-24 pt-32">
+      <div class="reveal">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="hairline w-12"></span>
+          <span class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass-bright)] uppercase">Niche Waterproofing · Independent Assessment</span>
+        </div>
+        <h1 class="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.92] mb-8 text-[var(--color-paper)]">
+          The Osborne<br/>
+          <span class="italic text-[var(--color-brass-bright)]">Condition Assessment</span>
+        </h1>
+        <div class="flex flex-wrap gap-x-12 gap-y-4 text-sm text-[var(--color-paper-2)]/80 font-mono">
+          <span>205 West 57th Street · New York</span>
+          <span>Block 1029 · Lot 27 · BIN 1024903</span>
+          <span>Landmark District</span>
+          <span>c. 1885</span>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-[var(--color-brass)]/60 text-xs font-mono tracking-[0.3em] animate-pulse">SCROLL</div>
+  </section>
+
+  <!-- PREPARED FOR -->
+  <section class="py-32 px-8 lg:px-16 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 reveal">
+      <div class="lg:col-span-4">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 01 · Foreword</div>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight">Prepared at the request of the Board of Managers.</h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 space-y-6 text-lg leading-relaxed text-[var(--color-paper-2)]">
+        <p>This document presents Niche Waterproofing's independent technical assessment of The Osborne following our site walkthrough and review of the current FISP Cycle 10A filing.</p>
+        <p>It is offered as a professional courtesy in the spirit of transparency: a forward-looking condition record, an honest reading of the building as we observed it, and our recommendations for the path the next restoration cycle should take.</p>
+        <p class="text-[var(--color-paper)] italic font-display text-xl">It is not a sales document. It is a record of what is, and a recommendation for what should be.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEADLINE FINDINGS -->
+  <section class="py-24 px-8 lg:px-16 bg-[var(--color-ink-2)] border-t border-[var(--color-brass)]/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-20">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-warning)] uppercase mb-4">§ 02 · Critical Findings</div>
+        <h2 class="font-display text-5xl md:text-7xl leading-[1.0] max-w-4xl">Three conditions warrant immediate engineering review.</h2>
+        <p class="mt-8 text-lg text-[var(--color-paper-2)]/80 max-w-3xl">Each is located above a daily occupant access point. Each, in our professional opinion, warrants interim overhead protection pending hands-on engineering verification.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {unsafe.map((p, i) => (
+          <a href={`${base}/photo/${p.id}/`} class="group reveal block bg-[var(--color-ink)] border border-[var(--color-warning)]/30 hover:border-[var(--color-warning)] transition-all duration-700 lift">
+            <div class="aspect-[4/5] overflow-hidden">
+              <img src={`${base}/images/photos/${p.file}`} alt={p.title} class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 lg:p-8">
+              <div class="flex items-center justify-between mb-4">
+                <span class="tag tag-warning">⚠ Critical · {String(i+1).padStart(2,'0')}</span>
+                <span class="font-mono text-[10px] text-[var(--color-paper-2)]/40">PHOTO {p.id}</span>
+              </div>
+              <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-brass)] uppercase mb-2">{p.elevation}</div>
+              <h3 class="font-display text-2xl leading-tight mb-4">{p.title}</h3>
+              <p class="text-sm text-[var(--color-paper-2)]/70 leading-relaxed">{p.finding}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE BUILDING / METHOD -->
+  <section class="py-32 px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 reveal">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 03 · The Building</div>
+        <h2 class="font-display text-5xl md:text-6xl leading-[1.0] mb-8">A 165-foot landmark in masonry and steel.</h2>
+        <div class="space-y-6 text-lg text-[var(--color-paper-2)]/85">
+          <p>Built in 1885, eleven stories, masonry load-bearing wall over steel frame. Cast iron, brownstone, bluestone, terra cotta, copper.</p>
+          <p>The Osborne sits in a Landmark District directly across from Carnegie Hall. Every restoration decision here engages LPC, requires mortar matching, and demands a level of technical care most buildings never face.</p>
+        </div>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 reveal">
+        <div class="grid grid-cols-2 gap-px bg-[var(--color-brass)]/15">
+          {[
+            ["165 ft", "Approximate Height"],
+            ["11", "Stories"],
+            ["1029 / 27", "Block / Lot"],
+            ["1024903", "BIN"],
+            ["c. 1885", "Year Built"],
+            ["Yes", "Landmark District"],
+          ].map(([v, l]) => (
+            <div class="bg-[var(--color-ink)] p-8">
+              <div class="font-display text-3xl numeric">{v}</div>
+              <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-paper-2)]/50 uppercase mt-2">{l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="py-32 px-8 lg:px-16 bg-[var(--color-ink-2)] border-y border-[var(--color-brass)]/10 grain relative">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="reveal mb-16">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 04 · Methodology</div>
+        <h2 class="font-display text-5xl md:text-7xl leading-[1.0] max-w-4xl">A complete picture requires hands on every linear foot.</h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div class="reveal space-y-6 text-lg text-[var(--color-paper-2)]/85">
+          <p>This walkthrough covered four street-facing elevations from publicly accessible vantage points and the building's roof level.</p>
+          <p>What we observed from the sidewalk — at street level and in carefully framed close-up — represents only what was within reach of an unpermitted assessment.</p>
+          <p>For the next cycle, Niche proposes <span class="text-[var(--color-brass-bright)] font-medium">a hands-on rope-access close-up of every elevation</span>, every projecting course, every voussoir, every cornice underside, every flashing termination.</p>
+          <p>Rope access is the right tool here because it allows a continuous hands-on read of the masonry without scaffolding the entire building first. Suspended scaffold can then be deployed where production work is approved by the data — not by default.</p>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4">
+          {[
+            ["Hands-on, every facade", "Close-range visual + sounding"],
+            ["Probe at every flashing", "Termination + lap + reglet"],
+            ["Sound every original stone", "Identify drummy / delaminated"],
+            ["Map every condition", "GPS-tagged, photo-paired"],
+            ["LPC pre-coordination", "Mortar match + mock-up"],
+            ["Quantified scope", "LF, SF, unit counts"],
+          ].map(([t, s]) => (
+            <div class="border border-[var(--color-brass)]/20 p-6 hover:border-[var(--color-brass)]/60 transition-colors">
+              <div class="font-display text-xl mb-2">{t}</div>
+              <div class="font-mono text-[10px] tracking-[0.15em] text-[var(--color-paper-2)]/50 uppercase">{s}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIELD OBSERVATIONS GALLERY -->
+  <section class="py-32 px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-20">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 05 · Field Observations</div>
+        <h2 class="font-display text-5xl md:text-7xl leading-[1.0] max-w-4xl">Sixteen observations from a single walkthrough.</h2>
+        <p class="mt-8 text-lg text-[var(--color-paper-2)]/80 max-w-3xl">Each photograph below was taken from publicly accessible vantage points. Click any image to read the full technical observation.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {photos.map((p) => (
+          <a id={`photo-${p.id}`} href={`${base}/photo/${p.id}/`} class={`photo-card block reveal lift ${p.tier === 'unsafe' ? 'ring-1 ring-[var(--color-warning)]/40' : ''}`}>
+            <div class="aspect-[4/5] relative">
+              <img src={`${base}/images/photos/${p.file}`} alt={p.title} loading="lazy" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 right-4 flex justify-between items-start">
+                <span class="font-mono text-[10px] text-[var(--color-paper)]/60 tracking-[0.2em]">№ {p.id}</span>
+                {p.tier === 'unsafe' && <span class="tag tag-warning bg-[var(--color-ink)]/80 backdrop-blur">⚠ Critical</span>}
+                {p.tier === 'fod' && <span class="tag tag-warning bg-[var(--color-ink)]/80 backdrop-blur">FOD</span>}
+                {p.tier === 'code' && <span class="tag tag-brass bg-[var(--color-ink)]/80 backdrop-blur">Code</span>}
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-brass-bright)] uppercase mb-2">{p.elevation}</div>
+                <h3 class="font-display text-xl leading-tight">{p.title}</h3>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section class="py-32 px-8 lg:px-16 bg-[var(--color-ink-2)] border-y border-[var(--color-brass)]/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal mb-16">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 06 · Patterns</div>
+        <h2 class="font-display text-5xl md:text-7xl leading-[1.0] max-w-4xl">The findings cluster into four building-wide patterns.</h2>
+      </div>
+      <div class="space-y-px bg-[var(--color-brass)]/15">
+        {[
+          ["Water-shedding elements", "Five projecting horizontal courses observed in active distress — cornices, belt courses, water tables, sill courses. Each shows characteristic failure: cracked underside, open termination, failed coating, or active water entry behind."],
+          ["Coating chemistry", "A film-forming paint system on porous brownstone substrate exhibits alligated cracking, edge lift, and adhesion failure across multiple elevations. LPC-coordinated remediation with vapor-permeable, mineral-compatible specifications recommended."],
+          ["Brownstone substrate", "Both bedding-plane (face-bedded sandstone) and through-stone tensile fractures observed at multiple locations. A comprehensive sounding survey of all original stone units, with treatment triage by category, is the appropriate next step."],
+          ["Concealed metal corrosion", "Rust-bearing staining migrating through the masonry face indicates embedded steel — lintels, anchors, ties — actively oxidizing behind the wall. Probe-and-evaluate at every suspect zone."],
+        ].map(([t, d], i) => (
+          <div class="reveal bg-[var(--color-ink)] p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-start hover:bg-[var(--color-ink-2)] transition-colors duration-500 group">
+            <div class="lg:col-span-1 font-mono text-xs text-[var(--color-brass)] tracking-[0.2em]">0{i+1}</div>
+            <div class="lg:col-span-4">
+              <h3 class="font-display text-3xl leading-tight">{t}</h3>
+            </div>
+            <div class="lg:col-span-7 text-[var(--color-paper-2)]/80 leading-relaxed">{d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PATH FORWARD -->
+  <section class="py-32 px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-5">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 07 · Path Forward</div>
+          <h2 class="font-display text-5xl md:text-6xl leading-[1.0]">Niche's recommended approach.</h2>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7 space-y-8 text-lg text-[var(--color-paper-2)]/85">
+          <div>
+            <div class="font-display text-2xl text-[var(--color-brass-bright)] mb-2">Phase I · Stabilize & Diagnose</div>
+            <p>Interim overhead protection at the three critical findings. Hands-on rope-access condition survey of all four facades. Sounding of every original stone unit. Probe testing at every flashing termination. Water testing and IR diagnostic at known leak zones.</p>
+          </div>
+          <div>
+            <div class="font-display text-2xl text-[var(--color-brass-bright)] mb-2">Phase II · Restore</div>
+            <p>LPC-coordinated brownstone restoration — pinning, dutchman, replacement-in-kind by triage category. Coating removal and replacement with vapor-permeable system. Re-flash every projecting course with proper drip detail. Address concealed metal where probes confirm corrosion.</p>
+          </div>
+          <div>
+            <div class="font-display text-2xl text-[var(--color-brass-bright)] mb-2">Phase III · Maintain</div>
+            <p>Compliance calendar to keep FISP filings ahead of cycle deadlines. Annual envelope walkthrough. Monitoring program at conditions designated for observation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="py-40 px-8 lg:px-16 bg-[var(--color-ink-2)] border-t border-[var(--color-brass)]/10 grain relative">
+    <div class="max-w-5xl mx-auto text-center reveal relative z-10">
+      <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-8">§ 08 · Next Steps</div>
+      <h2 class="font-display text-5xl md:text-7xl leading-[1.0] mb-12 italic">A landmark of this caliber deserves the level of care it was built with.</h2>
+      <p class="text-xl text-[var(--color-paper-2)]/85 max-w-3xl mx-auto leading-relaxed">Niche Waterproofing is prepared to coordinate with the engineering firm of the Board's choosing, deliver the rope-access condition survey, and propose a phased restoration plan that protects the building, the residents, and the investment.</p>
+      <div class="mt-16 flex flex-col items-center gap-2">
+        <div class="font-display text-2xl">Joshua Neuman</div>
+        <div class="font-mono text-xs tracking-[0.2em] text-[var(--color-brass-bright)] uppercase">Lead Estimator · Niche Waterproofing, LLC</div>
+        <div class="font-mono text-xs text-[var(--color-paper-2)]/60 mt-4">37 East 28th Street, Suite 602 · New York, NY 10016</div>
+        <div class="font-mono text-xs text-[var(--color-paper-2)]/60">(516) 517-4717 · joshua@nichewaterproofing.com</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-8 border-t border-[var(--color-brass)]/10 text-center">
+    <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/40 uppercase">
+      Niche Waterproofing, LLC · Independent Condition Assessment · Prepared for the Board of Managers · {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+    </div>
+  </footer>
+</Base>

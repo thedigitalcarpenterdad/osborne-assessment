@@ -1,0 +1,158 @@
+---
+import Base from "../../layouts/Base.astro";
+
+export function getStaticPaths() {
+  const photos = [
+    { id: "01", file: "01_underside_cornice_unsafe.jpg", title: "Cornice Soffit — Active Water Migration", elevation: "South Facade", caption: "Underside of cornice — calcium leaching observed", tier: "envelope",
+      narrative: ["The carved cornice soffit on the South facade exhibits classic markers of sustained water migration: vertical calcium streaking on the brownstone face below the projection, contour scaling on the soffit panels between modillions, and an aged film-forming coating in advanced adhesion failure on the bracket faces.", "The pattern indicates water is finding its way into the cornice assembly and exiting at the masonry joints below, where it dissolves binder material and redeposits it as visible mineral runoff."],
+      observations: ["Active water entry at projecting belt course", "Coating system in advanced adhesion failure", "Brownstone substrate in contour-scaling distress", "Falling-object risk over public sidewalk"],
+      next: "Hands-on rope-access close-up of the projecting cornice on this elevation. Sounding of all carved units. Coating compatibility testing prior to any further coating campaign." },
+    { id: "02", file: "02_underside_cornice_pointing.jpg", title: "Modillion Bracket — Bedding-Plane Distress", elevation: "South Facade", caption: "Carved scroll modillion at projecting belt course", tier: "envelope",
+      narrative: ["Tighter framing of the same cornice line. Modillion brackets show carved S-scroll volute profiles losing crispness, with bedding-plane cracks running through bracket bodies and granular sugaring of the surface.", "The mortar formulation at this assembly appears incompatible with the historic brownstone — symptoms include sacrificial erosion of stone surrounding sound-looking joints, which is characteristic of a harder cementitious mortar applied to a softer historic stone."],
+      observations: ["Bedding-plane cracking through bracket bodies", "Surface granular sugaring", "Mortar formulation appears incompatible with substrate", "Black biological / gypsum crust in protected soffit recesses"],
+      next: "Petrographic mortar analysis. LPC-coordinated lime-based mortar specification. Probe and sound full cornice via rope access." },
+    { id: "03", file: "03_water_table_sheetmetal_unsecured.jpg", title: "Storefront Cap Flashing — Unsecured", elevation: "South Facade · Street Level", caption: "Painted sheet-metal cap at water-table-to-storefront transition", tier: "fod",
+      narrative: ["Painted sheet-metal cap flashing at the masonry-to-cornice transition shows rust-through perforation at the upturned rear leg, an open lap with no positive mechanical engagement, and oxidation indicating active steel corrosion beneath the coating.", "Located directly above the building's primary public sidewalk on West 57th Street."],
+      observations: ["Rust-through perforation at rear leg", "Open lap, no continuous cleat or mechanical fastening", "Active oxidation beneath coating", "Direct over public right-of-way"],
+      next: "Probe-sound the flashing for stability. Replace with proper terne-coated stainless or 16oz copper assembly: reglet termination, concealed cleat, hemmed drip edge, locked S-lock seams." },
+    { id: "04", file: "04_storefront_panel_displaced.jpg", title: "Bulkhead Panel — Displaced", elevation: "South Facade · Street Level", caption: "Inset sheet-metal panel canted out of plane", tier: "fod",
+      narrative: ["The inset rectangular panel within the storefront bulkhead has rotated out of its frame: the upper edge sits proud with a ¼\"–⅜\" reveal, the left edge shows a deep void, the right edge is recessed.", "The horizontal lap above shows a fully open, debris-laden joint with cobweb evidence indicating the joint has been continuously open for multiple seasons."],
+      observations: ["Inset panel rotated out of plane", "Open lap at top of cornice with multi-season debris", "Loss of positive engagement at panel perimeter", "Active water entry into the bulkhead cavity"],
+      next: "Full removal of bulkhead cladding for substrate evaluation. Replacement of corroded backing. New flashings, sealed laps, compatible metal selection, proper paint system." },
+    { id: "05", file: "05_water_table_belt_course_failure.jpg", title: "Belt Course / Water Table — Active Spalling", elevation: "Street Facade · Story Line", caption: "Major intermediate belt course with carved scroll modillions", tier: "envelope",
+      narrative: ["A major projecting belt course at the story line, with carved scroll modillion brackets and decorative ornament. The rusticated brownstone above the cornice exhibits active material loss — fresh fracture, displaced units, possible debonding from the wall plane.", "Evidence of mixed coating chemistry on the cornice and decorative panels — a yellow-ochre coating in patchy adhesion, mineral leaching, and dark biological staining."],
+      observations: ["Active brownstone material loss above cornice", "Possible debonding from wall plane", "Building-to-building joint at adjacent property requires close-up evaluation", "Coating chemistry inconsistent with substrate"],
+      next: "Hands-on rope-access close-up. Sounding of all suspect brownstone. Probe testing of mortar joints. Stone replacement / dutchman map for fractured units. Re-flash and re-establish drip detail at projection." },
+    { id: "06", file: "06_cracked_capital_over_entrance.jpg", title: "Carved Capital Over Main Entrance", elevation: "South Facade · Entrance", caption: "Carved limestone pilaster capital with displaced corner unit", tier: "unsafe",
+      narrative: ["A carved limestone capital flanking the main entrance shows what appears to be an open through-element fracture through the projecting abacus, continuing into the carved foliated band below. The right corner reads as partly detached or shifted, with a dark open seam suggesting separation between the cap block and adjacent stone.", "The element sits directly over the primary egress used daily by residents, staff, and visitors."],
+      observations: ["Open through-element fracture in projecting cap", "Right-corner separation with possible outward rotation", "Crack path continues into carved foliated band", "Located directly over occupied primary entrance"],
+      next: "In Niche's professional opinion, this condition warrants immediate engineering review and interim overhead protection. Hands-on inspection (sounding, probing, anchorage check). Stabilization (netting / shoring / tie-off) if any movement detected. Repair plan: dutchman, pinning, reanchoring, or unit replacement per engineer's findings." },
+    { id: "07", file: "07_failed_flashing_pier_corner.jpg", title: "Pier Termination Flashing — Failed", elevation: "South Facade", caption: "Painted sheet-metal cap at masonry pier with adjacent limestone", tier: "envelope",
+      narrative: ["A painted sheet-metal cap flashing at a masonry pier termination shows an open serrated joint at the masonry-to-metal interface. A bituminous mastic has been applied at the joint and is itself in failure: shrinking, cracking, and separating.", "Active rust staining and adjacent limestone shows incipient water staining consistent with chronic infiltration at this corner."],
+      observations: ["Open joint at masonry-to-metal interface", "Bituminous mastic in shrinkage and adhesion failure", "Active rust bleed onto adjacent stone", "Coating in alligated film failure across cap surface"],
+      next: "Open and probe the flashing termination. Remove failed mastic. Fabricate and install new custom counterflashing with reglet termination, concealed cleat, hemmed drip. Spot stone repair as required." },
+    { id: "08", file: "08_failing_watertable_joints.jpg", title: "Water Table Joint Zone — Concealed Metal Corrosion", elevation: "South Facade", caption: "Recessed panel zone with active staining and rust streaks", tier: "envelope",
+      narrative: ["A recessed panel zone above an arched window head shows a cementitious render in active failure: map cracking, telegraphed substrate movement, edge debonding. A vertical brownstone remnant projects within the recess, coated in efflorescence and biological staining.", "Three concurrent indicators point to active envelope failure: efflorescence (soluble salt migration), wet-path streaking (chronic moisture flow), and rust-colored streaking — the latter consistent with concealed metal corrosion within the wall assembly."],
+      observations: ["Cementitious render in active failure", "Active moisture migration confirmed by efflorescence", "Rust-streak telegraph indicates concealed embedded steel corroding", "Failed prior overlay concealing rather than correcting underlying conditions"],
+      next: "Probe the upper joint to determine ingress depth. Investigate concealed metal — sound, X-ray if needed. Repoint with compatible lime-based mortar. Repair / replace deteriorated stone units. Re-establish proper waterproofing at termination. Coordinate with LPC." },
+    { id: "09", file: "09_arched_window_head_displaced_stone.jpg", title: "Arched Window Head — Open Joint at Haunch", elevation: "South Facade · Window Bay", caption: "Open joint at masonry arch springer above an occupied window", tier: "unsafe",
+      narrative: ["The masonry arch over an occupied window shows what appears to be an open joint at the springer / haunch zone — the highest-stress location in any masonry arch. The opening reads as several millimeters to over a centimeter wide in places, with apparent localized displacement.", "Masonry arches hold themselves up through continuous compression; open jointing at the haunches indicates loss of bedding/mortar, differential movement, or rotation of the springers — all conditions inconsistent with a stable arch."],
+      observations: ["Open joint at the haunch / springer of a masonry arch", "Possible voussoir displacement", "Open joints continuing in the relieving arch / load-bearing course above", "Located above an occupied apartment window"],
+      next: "In Niche's professional opinion, this condition warrants immediate engineering review by a licensed structural engineer. Hands-on inspection from lift or swing stage. Sounding and joint probe. Resident notification. Temporary stabilization if movement is confirmed. Do not proceed with cosmetic repointing until structural cause is understood." },
+    { id: "10", file: "10_panel_zone_with_arch_below.jpg", title: "Window Bay — System View", elevation: "South Facade · Window Bay", caption: "Panel zone, cornice band, and arched window head in one frame", tier: "system",
+      narrative: ["A single-frame composition of the panel zone above, the cornice band between, and the arched window head below — together documenting the sequence: failed render at the panel, water migrating through the assembly, manifesting as open joints at the arch.", "If this is the condition of one window bay, the architectural composition repeats at each window on this elevation. Hands-on inspection of every bay is the appropriate next step."],
+      observations: ["Cause-and-effect chain visible in one frame", "Failure mode is connected, not isolated", "Implies systemic-bay condition across the facade", "Justifies bay-by-bay rope-access inspection"],
+      next: "Hands-on rope-access of every window bay on the South facade. Repeat methodology across East, North, and courtyard elevations. Catalog conditions bay-by-bay for triaged restoration plan." },
+    { id: "11", file: "11_cracked_watertable_underside.jpg", title: "Story-Line Water Table Cornice — Underside Cracking", elevation: "Street Facade · Story Line", caption: "Major water table with carved decorative panels", tier: "envelope",
+      narrative: ["A major story-line water table with three decorative bays, each containing applied brownstone plaques. The yellow-cream coating across the cornice and panels is in severe failure: peeling, blistering, alligated cracking. The underside shows cracking visible from the sidewalk.", "Even a modest crack on a projecting water-table soffit allows water entry behind the cornice, freeze-thaw enlargement, and concealed deterioration of anchors and bedding mortar."],
+      observations: ["Cracked underside at projecting cornice", "Severe alligated coating failure across cornice and panels", "Coating chemistry incompatible with porous brownstone substrate", "Building-wide coating remediation indicated"],
+      next: "Coating chemistry analysis. Removal of incompatible coatings (LPC-coordinated). Substrate consolidation strategy. Repair of cornice underside. Re-establishment of proper drip detail." },
+    { id: "12", file: "12_railings_not_to_code.jpg", title: "Rooftop Guard Rail — Code Compliance", elevation: "Roof Level", caption: "Steel pipe rail system above original masonry parapet", tier: "code",
+      narrative: ["A steel pipe rail system mounted above the original masonry parapet at roof level. Configuration: top rail + intermediate rail, no vertical infill, openings substantially exceeding the 4-inch sphere maximum.", "The horizontal-rail-without-infill configuration creates a ladder-effect climbing condition. NYC BC §1015 governs guards at occupied surfaces."],
+      observations: ["Openings substantially exceed 4\" sphere maximum", "No vertical balusters / pickets / infill panels", "Ladder-effect climbable configuration", "Located on potentially accessible rooftop area"],
+      next: "Field-measure against NYC BC §1015. Confirm roof access classification (occupied vs. service-only). Audit anchorage, corrosion, weld integrity. Recommend retrofit with vertical-infill design. Coordinate with LPC where parapet interface is landmarked." },
+    { id: "13", file: "13_failing_brownstone_repair_freight_entrance_UNSAFE.jpg", title: "Brownstone Above Freight Entrance — UNSAFE", elevation: "Service Entrance", caption: "Cementitious stone repair with horizontal bond-line failure", tier: "unsafe",
+      narrative: ["A cementitious stone repair on the brownstone face directly above the building's freight entrance shows a horizontal bond-line failure. The upper edge of the repair has separated from the substrate behind it, with a visible overhanging lip and dark recess at the crack line.", "Located above an active service entrance with daily staff, delivery, and maintenance traffic."],
+      observations: ["Horizontal bond-line failure at top of repair zone", "Repair material debonded from substrate above", "Visible overhanging lip with possible loose fragment", "Active service-entrance traffic below"],
+      next: "In Niche's professional opinion, this condition meets the threshold for UNSAFE classification under FISP. Immediate interim overhead protection at the freight entrance. Hands-on engineering inspection within 48 hours. Controlled removal of loose material before next freeze-thaw or vibration event. No cosmetic re-bonding — full root-cause repair under proper specifications." },
+    { id: "14", file: "14_more_brownstone_cracks.jpg", title: "Brownstone Substrate — Bedding-Related Fracture", elevation: "South Facade · Service Area", caption: "Diagonal fracture in original brownstone unit", tier: "envelope",
+      narrative: ["A diagonal fracture in an original brownstone unit, with branching micro-cracks indicating a broader weakened zone. A small edge spall confirms active material detachment.", "The fracture pattern is consistent with face-bedded sandstone — a 19th-century construction practice common to NYC brownstones, where the natural bedding plane runs parallel to the wall face and creates an inherent weakness plane."],
+      observations: ["Diagonal fracture across one stone unit", "Branching micro-cracks indicate broader weakened zone", "Edge spall confirms active material detachment", "Consistent with face-bedded brownstone failure mode"],
+      next: "Sounding survey of all original brownstone units via rope access. Triage by treatment category: consolidant, dutchman, stainless-steel pinning, replacement-in-kind. LPC-coordinated material specifications throughout." },
+    { id: "15", file: "15_water_table_crack_through_painted_cornice.jpg", title: "Window-Line Water Table — Through-Stone Fracture", elevation: "South Facade · Window Bay", caption: "Vertical fracture cutting through stone unit at sill cornice", tier: "envelope",
+      narrative: ["A window-line water table / sill cornice with stacked classical entablature below. A vertical fracture cuts through one brownstone unit at the cap and propagates into the projecting molded section.", "The crack cuts across rather than along bedding planes, indicating tensile stress, restraint, or thermal/freeze-thaw cycling. The painted molded portion below shows severe alligated coating failure with edge lift and peeling."],
+      observations: ["Vertical fracture cutting through brownstone unit", "Crack continues into projecting molded section", "Severe alligated coating failure on entablature below", "Through-stone failure mode distinct from bedding-plane cracks elsewhere"],
+      next: "Sounding to confirm crack depth. Treatment evaluation: stainless-steel pinning + epoxy injection if substrate has remaining integrity, otherwise dutchman or unit replacement. Coating remediation per facade-wide strategy." },
+    { id: "16", file: "16_water_table_crack_wider_view.jpg", title: "Window Bay — Architectural Rhythm", elevation: "South Facade · Window Bay", caption: "Wider context view of the same fracture from photo 15", tier: "envelope",
+      narrative: ["The wider context of the window-line water table fracture documented in photograph 15. The architectural composition — window, brownstone pilaster, sill cornice, stacked entablature — repeats at every window bay on this elevation.", "Documenting the same defect from two angles eliminates ambiguity and confirms the fracture is a true masonry condition, not a paint line."],
+      observations: ["Confirms bay-systematic architectural composition", "Repetitive composition implies repetitive failure pattern", "Two-angle documentation strengthens diagnostic record", "Justifies bay-by-bay rope-access inspection"],
+      next: "Apply bay-by-bay inspection methodology to every window opening on every elevation. Catalog conditions for systematic restoration plan." },
+  ];
+  return photos.map((p, i) => ({
+    params: { id: p.id },
+    props: { photo: p, index: i, total: photos.length, prev: photos[(i - 1 + photos.length) % photos.length], next: photos[(i + 1) % photos.length] },
+  }));
+}
+
+const { photo, index, total, prev, next } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const tierLabel = {
+  unsafe: "Critical Finding",
+  fod: "Falling-Object Risk",
+  code: "Code Compliance",
+  envelope: "Envelope Condition",
+  system: "System View",
+}[photo.tier];
+const tierColor = photo.tier === "unsafe" || photo.tier === "fod" ? "tag-warning" : photo.tier === "code" ? "tag-brass" : "tag-stone";
+---
+<Base title={`${photo.title} — The Osborne Assessment`}>
+  <!-- TOP NAV -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5 bg-[var(--color-ink)]/80 backdrop-blur-md border-b border-[var(--color-brass)]/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href={`${base}/`} class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/70 hover:text-[var(--color-brass-bright)] transition-colors uppercase">← The Osborne Assessment</a>
+      <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/40 uppercase">Photo {photo.id} / {String(total).padStart(2,'0')}</div>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <section class="pt-24 pb-12 px-6 lg:px-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal">
+        <div class="flex items-center gap-3 mb-6">
+          <span class={`tag ${tierColor}`}>{tierLabel}</span>
+          <span class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-paper-2)]/50 uppercase">{photo.elevation}</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl leading-[1.05] mb-12 max-w-4xl">{photo.title}</h1>
+      </div>
+      <div class="reveal relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-[var(--color-ink-2)]">
+        <img src={`${base}/images/photos/${photo.file}`} alt={photo.title} class="w-full h-full object-cover" />
+      </div>
+      <div class="reveal mt-4 font-mono text-[10px] tracking-[0.2em] text-[var(--color-paper-2)]/50 uppercase">{photo.caption}</div>
+    </div>
+  </section>
+
+  <!-- NARRATIVE -->
+  <section class="py-20 px-6 lg:px-12">
+    <div class="max-w-4xl mx-auto reveal">
+      <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">Observation</div>
+      <div class="space-y-6 text-xl leading-relaxed text-[var(--color-paper-2)]/90 font-display font-light italic">
+        {photo.narrative.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO COLUMNS: OBSERVATIONS + NEXT -->
+  <section class="py-20 px-6 lg:px-12 bg-[var(--color-ink-2)] border-y border-[var(--color-brass)]/10">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-6">Documented Conditions</div>
+        <ul class="space-y-4">
+          {photo.observations.map((o, i) => (
+            <li class="flex gap-4 items-start border-b border-[var(--color-brass)]/15 pb-4">
+              <span class="font-mono text-[10px] text-[var(--color-brass)] mt-2 numeric">0{i+1}</span>
+              <span class="text-[var(--color-paper-2)]/90 leading-relaxed">{o}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-6">Niche Recommendation</div>
+        <p class="text-lg leading-relaxed text-[var(--color-paper-2)]/85">{photo.next}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREV / NEXT -->
+  <nav class="py-16 px-6 lg:px-12 border-t border-[var(--color-brass)]/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 gap-8">
+      <a href={`${base}/photo/${prev.id}/`} class="group block">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/40 uppercase mb-3">← Previous · {prev.id}</div>
+        <div class="font-display text-2xl leading-tight group-hover:text-[var(--color-brass-bright)] transition-colors">{prev.title}</div>
+      </a>
+      <a href={`${base}/photo/${next.id}/`} class="group block text-right">
+        <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/40 uppercase mb-3">Next · {next.id} →</div>
+        <div class="font-display text-2xl leading-tight group-hover:text-[var(--color-brass-bright)] transition-colors">{next.title}</div>
+      </a>
+    </div>
+  </nav>
+</Base>

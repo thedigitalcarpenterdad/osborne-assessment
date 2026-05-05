@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0908;
+  --color-ink-2: #14110f;
+  --color-paper: #f5f1ea;
+  --color-paper-2: #ebe5da;
+  --color-stone: #6b5d4e;
+  --color-brownstone: #7a3e2a;
+  --color-brownstone-deep: #4a2418;
+  --color-brass: #b08d57;
+  --color-brass-bright: #d4a85c;
+  --color-rust: #8b3a1f;
+  --color-warning: #c44536;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-ink);
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+}
+
+/* Vintage display type */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle grain texture for that landmark gravitas */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marquee numbers */
+.numeric {
+  font-feature-settings: "tnum", "lnum";
+  font-variant-numeric: tabular-nums;
+}
+
+/* Vertical text */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Hairline rules */
+.hairline {
+  background: linear-gradient(90deg, transparent, var(--color-brass) 50%, transparent);
+  height: 1px;
+}
+.hairline-v {
+  background: linear-gradient(180deg, transparent, var(--color-brass) 50%, transparent);
+  width: 1px;
+}
+
+/* Hover lift */
+.lift {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Photo gallery */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink-2);
+  cursor: pointer;
+}
+.photo-card img {
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  filter: brightness(0.85) contrast(1.05);
+}
+.photo-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.1);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid currentColor;
+}
+.tag-warning { color: var(--color-warning); }
+.tag-brass { color: var(--color-brass-bright); }
+.tag-stone { color: var(--color-paper-2); }
