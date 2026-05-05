@@ -18,6 +18,9 @@ const photos = [
   { id: "14", file: "14_more_brownstone_cracks.jpg", title: "Brownstone Substrate — Bedding-Related Fracture", elevation: "South Facade · Service Area", finding: "Diagonal fracture in original brownstone unit consistent with face-bedded sandstone behavior. Branching micro-cracks indicate broader weakened zone. Edge spall confirms active material detachment.", tier: "envelope" },
   { id: "15", file: "15_water_table_crack_through_painted_cornice.jpg", title: "Window-Line Water Table — Through-Stone Fracture", elevation: "South Facade · Window Bay", finding: "Vertical fracture cutting through one brownstone unit and propagating into the projecting molded section below. Severe alligated coating failure across stacked classical entablature.", tier: "envelope" },
   { id: "16", file: "16_water_table_crack_wider_view.jpg", title: "Window Bay — Architectural Rhythm", elevation: "South Facade · Window Bay", finding: "Wider context of the window-line water table fracture. The architectural composition of pilaster + sill cornice + entablature repeats at every window bay on this elevation.", tier: "envelope" },
+  { id: "17", file: "17_brownstone_spall_dutchman_loss.jpg", title: "Rusticated Brownstone — Localized Face Loss", elevation: "Street Facade", finding: "Scallop-shaped face loss in a rusticated brownstone unit, with substrate exposed beneath. A second smaller related defect adjacent confirms progressive material detachment across this elevation.", tier: "envelope" },
+  { id: "18", file: "18_brownstone_meets_painted_repair_panel.jpg", title: "Dissimilar-Material Junction", elevation: "Street Facade", finding: "Junction between original rusticated brownstone and a non-original painted infill panel. Joint is filled with hand-built mortar bridging two materials that move at different rates. Lower horizontal element acts as either a flashing or repair shelf, heavily painted and sealed.", tier: "envelope" },
+  { id: "19", file: "19_arched_entrance_hood_cracking.jpg", title: "Entrance Hood — Diagonal Crack at Springing", elevation: "South Facade · Entrance", finding: "Diagonal stress crack and spalled corner at the right springing of the major arched entrance hood. Same hood assembly as the carved capital documented at finding 06. Two independent failure indicators at the highest-stress structural zone of the entrance arch.", tier: "unsafe" },
 ];
 
 const unsafe = photos.filter(p => p.tier === "unsafe");
@@ -34,7 +37,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="reveal">
         <div class="flex items-center gap-3 mb-8">
           <span class="hairline w-12"></span>
-          <span class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass-bright)] uppercase">Niche Waterproofing · Independent Assessment</span>
+          <span class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass-bright)] uppercase">Niche Waterproofing &amp; Bowery Consulting Labs · Independent Assessment</span>
         </div>
         <h1 class="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.92] mb-8 text-[var(--color-paper)]">
           The Osborne<br/>
@@ -59,8 +62,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <h2 class="font-display text-4xl md:text-5xl leading-tight">Prepared at the request of the Board of Managers.</h2>
       </div>
       <div class="lg:col-span-7 lg:col-start-6 space-y-6 text-lg leading-relaxed text-[var(--color-paper-2)]">
-        <p>This document presents Niche Waterproofing's independent technical assessment of The Osborne following our site walkthrough and review of the current FISP Cycle 10A filing.</p>
-        <p>It is offered as a professional courtesy in the spirit of transparency: a forward-looking condition record, an honest reading of the building as we observed it, and our recommendations for the path the next restoration cycle should take.</p>
+        <p>This document presents an independent technical assessment of The Osborne, prepared collaboratively by <span class="text-[var(--color-brass-bright)]">Niche Waterproofing, LLC</span> and <a href="https://bowerycolabs.com/" target="_blank" rel="noopener" class="text-[var(--color-brass-bright)] underline decoration-[var(--color-brass)]/40 underline-offset-4 hover:decoration-[var(--color-brass-bright)] transition">Bowery Consulting Labs</a>, following a joint site walkthrough and review of the current FISP Cycle 10A filing.</p>
+        <p>It is offered as a professional courtesy in the spirit of transparency: a forward-looking condition record, an honest reading of the building as we observed it, and our combined recommendations for the path the next restoration cycle should take.</p>
         <p class="text-[var(--color-paper)] italic font-display text-xl">It is not a sales document. It is a record of what is, and a recommendation for what should be.</p>
       </div>
     </div>
@@ -72,7 +75,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="reveal mb-20">
         <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-warning)] uppercase mb-4">§ 02 · Critical Findings</div>
         <h2 class="font-display text-5xl md:text-7xl leading-[1.0] max-w-4xl">Three conditions warrant immediate engineering review.</h2>
-        <p class="mt-8 text-lg text-[var(--color-paper-2)]/80 max-w-3xl">Each is located above a daily occupant access point. Each, in our professional opinion, warrants interim overhead protection pending hands-on engineering verification.</p>
+        <p class="mt-8 text-lg text-[var(--color-paper-2)]/80 max-w-3xl">Each is located above a daily occupant access point. Each, in our combined professional opinion, warrants interim overhead protection pending hands-on engineering verification.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         {unsafe.map((p, i) => (
@@ -135,10 +138,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
       <div class="grid lg:grid-cols-2 gap-16">
         <div class="reveal space-y-6 text-lg text-[var(--color-paper-2)]/85">
-          <p>This walkthrough covered four street-facing elevations from publicly accessible vantage points and the building's roof level.</p>
+          <p>This walkthrough was conducted jointly by Niche Waterproofing and Bowery Consulting Labs, covering four street-facing elevations from publicly accessible vantage points and the building's roof level.</p>
           <p>What we observed from the sidewalk — at street level and in carefully framed close-up — represents only what was within reach of an unpermitted assessment.</p>
-          <p>For the next cycle, Niche proposes <span class="text-[var(--color-brass-bright)] font-medium">a hands-on rope-access close-up of every elevation</span>, every projecting course, every voussoir, every cornice underside, every flashing termination.</p>
-          <p>Rope access is the right tool here because it allows a continuous hands-on read of the masonry without scaffolding the entire building first. Suspended scaffold can then be deployed where production work is approved by the data — not by default.</p>
+          <p>As the immediate next step, the team proposes <span class="text-[var(--color-brass-bright)] font-medium">a hands-on close-range survey of 100% of the facade</span> — accomplished by either rope access or a comprehensive multi-day boom-truck deployment over a 2–3 day period — giving the engineer of record full close-range access to every elevation, every projecting course, every voussoir, every cornice underside, every flashing termination.</p>
+          <p>The choice between rope access and boom-truck inspection is a project-specific decision. Either approach delivers the continuous hands-on read of the masonry that the building requires before any production work is scoped. Suspended scaffold can then be deployed where active restoration is approved by the data — not by default.</p>
         </div>
         <div class="reveal grid grid-cols-2 gap-4">
           {[
@@ -222,7 +225,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="reveal grid lg:grid-cols-12 gap-8">
         <div class="lg:col-span-5">
           <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 07 · Path Forward</div>
-          <h2 class="font-display text-5xl md:text-6xl leading-[1.0]">Niche's recommended approach.</h2>
+          <h2 class="font-display text-5xl md:text-6xl leading-[1.0]">The team's recommended approach.</h2>
         </div>
         <div class="lg:col-span-6 lg:col-start-7 space-y-8 text-lg text-[var(--color-paper-2)]/85">
           <div>
@@ -242,24 +245,56 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
+  <!-- INVESTMENT FRAMEWORK -->
+  <section class="py-32 px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-4">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-4">§ 08 · Investment Framework</div>
+          <h2 class="font-display text-5xl md:text-6xl leading-[1.0]">A defensible budget posture.</h2>
+        </div>
+        <div class="lg:col-span-7 lg:col-start-6 space-y-6 text-lg text-[var(--color-paper-2)]/85">
+          <div class="bg-[var(--color-ink-2)] border border-[var(--color-brass)]/20 p-8 lg:p-10">
+            <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-brass-bright)] uppercase mb-3">Preliminary Order-of-Magnitude</div>
+            <div class="font-display text-5xl md:text-6xl text-[var(--color-paper)] mb-3 numeric">$1.0M – $1.2M</div>
+            <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-paper-2)]/50 uppercase">Based on ground-level observations</div>
+          </div>
+          <p>Based on combined ground-level observations, the team estimates the order-of-magnitude investment required to address the conditions identified in this assessment — and the conditions a hands-on close-range survey is expected to reveal — at approximately <span class="text-[var(--color-brass-bright)] font-medium">$1.0&nbsp;million to $1.2&nbsp;million</span>.</p>
+          <p>This is a preliminary range based on visual observations from publicly accessible vantage points. The full close-range survey may revise this figure up or down depending on what is found at hands-on inspection.</p>
+          <p class="text-[var(--color-paper)] italic font-display text-xl leading-relaxed">In our combined opinion, the scope as currently documented in the prior FISP filing materially underestimates the work required to bring the building to a safe, durable, and landmark-appropriate condition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CLOSING -->
   <section class="py-40 px-8 lg:px-16 bg-[var(--color-ink-2)] border-t border-[var(--color-brass)]/10 grain relative">
     <div class="max-w-5xl mx-auto text-center reveal relative z-10">
-      <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-8">§ 08 · Next Steps</div>
+      <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-8">§ 09 · Next Steps</div>
       <h2 class="font-display text-5xl md:text-7xl leading-[1.0] mb-12 italic">A landmark of this caliber deserves the level of care it was built with.</h2>
-      <p class="text-xl text-[var(--color-paper-2)]/85 max-w-3xl mx-auto leading-relaxed">Niche Waterproofing is prepared to coordinate with the engineering firm of the Board's choosing, deliver the rope-access condition survey, and propose a phased restoration plan that protects the building, the residents, and the investment.</p>
-      <div class="mt-16 flex flex-col items-center gap-2">
-        <div class="font-display text-2xl">Joshua Neuman</div>
-        <div class="font-mono text-xs tracking-[0.2em] text-[var(--color-brass-bright)] uppercase">Lead Estimator · Niche Waterproofing, LLC</div>
-        <div class="font-mono text-xs text-[var(--color-paper-2)]/60 mt-4">37 East 28th Street, Suite 602 · New York, NY 10016</div>
-        <div class="font-mono text-xs text-[var(--color-paper-2)]/60">(516) 517-4717 · joshua@nichewaterproofing.com</div>
+      <p class="text-xl text-[var(--color-paper-2)]/85 max-w-3xl mx-auto leading-relaxed">Niche Waterproofing and Bowery Consulting Labs are prepared to deliver the close-range condition survey, document every observed condition with quantified precision, and propose a phased restoration plan that protects the building, the residents, and the investment.</p>
+      <div class="mt-20 grid md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+        <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-2">Niche Waterproofing, LLC</div>
+          <div class="font-display text-2xl">Joshua Neuman</div>
+          <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-brass-bright)] uppercase">Lead Estimator</div>
+          <div class="font-mono text-xs text-[var(--color-paper-2)]/60 mt-3">(516) 517-4717</div>
+          <div class="font-mono text-xs text-[var(--color-paper-2)]/60">joshua@nichewaterproofing.com</div>
+        </div>
+        <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+          <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-brass)] uppercase mb-2"><a href="https://bowerycolabs.com/" target="_blank" rel="noopener" class="hover:text-[var(--color-brass-bright)] transition">Bowery Consulting Labs ↗</a></div>
+          <div class="font-display text-2xl">Matt Gafary <span class="text-[var(--color-paper-2)]/40 text-base">·</span> Ryan Hopewell</div>
+          <div class="font-mono text-[10px] tracking-[0.2em] text-[var(--color-brass-bright)] uppercase">Principals</div>
+          <div class="font-mono text-xs text-[var(--color-paper-2)]/60 mt-3">matt@bowerycolabs.com</div>
+          <div class="font-mono text-xs text-[var(--color-paper-2)]/60">ryan@bowerycolabs.com</div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer class="py-12 px-8 border-t border-[var(--color-brass)]/10 text-center">
     <div class="font-mono text-[10px] tracking-[0.3em] text-[var(--color-paper-2)]/40 uppercase">
-      Niche Waterproofing, LLC · Independent Condition Assessment · Prepared for the Board of Managers · {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+      Niche Waterproofing, LLC &amp; Bowery Consulting Labs · Independent Condition Assessment · Prepared for the Board of Managers · {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
     </div>
   </footer>
 </Base>
