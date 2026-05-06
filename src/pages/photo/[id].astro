@@ -116,8 +116,8 @@ const tierColor = photo.tier === "unsafe" || photo.tier === "fod" ? "tag-warning
         </div>
         <h1 class="font-display text-4xl md:text-6xl leading-[1.05] mb-12 max-w-4xl">{photo.title}</h1>
       </div>
-      <div class="reveal relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-[var(--color-ink-2)]">
-        <img src={`${base}/images/photos/${photo.file}`} alt={photo.title} class="w-full h-full object-cover" />
+      <div class="reveal relative bg-[var(--color-ink-2)] flex items-center justify-center max-h-[85vh] overflow-hidden">
+        <img src={`${base}/images/photos/${photo.file}`} alt={photo.title} class="w-full h-auto max-h-[85vh] object-contain" />
       </div>
       <div class="reveal mt-4 font-mono text-[10px] tracking-[0.2em] text-[var(--color-paper-2)]/50 uppercase">{photo.caption}</div>
     </div>
